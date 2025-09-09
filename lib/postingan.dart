@@ -17,7 +17,7 @@ class Postingan extends StatelessWidget {
               children: [
                 CircleAvatar(
                   radius: 24,
-                  backgroundImage: AssetImage('assets/images/profile.jpg'), // Ganti dengan path gambar profil
+                  backgroundImage: AssetImage('assets/images/bintang.jpg'), // Ganti dengan path gambar profil
                 ),
                 const SizedBox(width: 12),
                 Column(
@@ -40,7 +40,7 @@ class Postingan extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(12),
               child: Image.asset(
-                'assets/images/postingan.jpg', // Ganti dengan path gambar postingan
+                'assets/images/bintang.jpg', // Ganti dengan path gambar postingan
                 width: double.infinity,
                 height: 300,
                 fit: BoxFit.cover,

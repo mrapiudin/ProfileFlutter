@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'bottom_button.dart'; // panggil bottom nav
 import 'appbar.dart';       // panggil appbar & story
+import 'postingan.dart'; // panggil profil bintang
 
 void main() {
   runApp(const MyApp());
@@ -18,12 +19,33 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      home: const AppBarPage(), 
+      home: const MainScreen(), // arahkan ke MainScreen
     );
   }
 }
-class ProfileKelompok extends StatelessWidget {
-  const ProfileKelompok({super.key});
+
+class MainScreen extends StatefulWidget {
+  const MainScreen({super.key});
+
+  @override
+  State<MainScreen> createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> {
+  int _selectedIndex = 0;
+
+  final List<Widget> _pages = const [
+    HomePage(), // dari appbar.dart
+    Placeholder(), // Search
+    Placeholder(), // Notifications
+    Placeholder(), // Profile
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,4 +56,5 @@ class ProfileKelompok extends StatelessWidget {
         onTap: _onItemTapped,
       ),
     );
+  }
   }
