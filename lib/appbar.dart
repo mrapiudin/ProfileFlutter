@@ -11,7 +11,7 @@ class AppBarPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'すなぷし',
+      title: 'ProfileTheree',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -31,31 +31,31 @@ class HomePage extends StatelessWidget {
         elevation: 0,
         backgroundColor: Colors.white,
         title: const Text(
-          "すなぷし",
+          "SnapSy",
           style: TextStyle(
             color: Colors.black,
             fontWeight: FontWeight.bold,
+            fontSize: 28,
           ),
         ),
-        actions: const [
-          Padding(
-            padding: EdgeInsets.only(right: 16),
-            child: Icon(Icons.search, color: Colors.black),
-          )
-        ],
+
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Horizontal Stories
-          SizedBox(
-            height: 120,
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              padding: const EdgeInsets.symmetric(horizontal: 12),
-              children: const [
+          // Horizontal Stories dengan jarak merata dan posisi tengah
+          Container(
+            height: 140,
+            width: double.infinity,
+            padding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.of(context).size.width * 0.05,
+            ),
+            child: const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly, // Distribusi merata
+              crossAxisAlignment: CrossAxisAlignment.center, // Posisi tengah vertikal
+              children: [
                 StoryItem(
-                  name: "Bintang ",
+                  name: "Bintang",
                   imageUrl: "https://i.pravatar.cc/150?img=47",
                 ),
                 StoryItem(
@@ -89,25 +89,27 @@ class StoryItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 70,
-      margin: const EdgeInsets.symmetric(horizontal: 6),
-      child: Column(
-        children: [
-          CircleAvatar(
-            radius: 40,
-            backgroundColor:
-                isAddNew ? Colors.purpleAccent : Colors.grey.shade300,
-            child: isAddNew
-                ? const Icon(Icons.add, color: Colors.white, size: 30)
-                : CircleAvatar(
-                    radius: 40,
-                    backgroundImage: NetworkImage(imageUrl),
-                  ),
-          ),
-          const SizedBox(height: 6),
-          Text(
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center, // Posisi tengah vertikal
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        CircleAvatar(
+          radius: 40,
+          backgroundColor:
+              isAddNew ? Colors.purpleAccent : Colors.grey.shade300,
+          child: isAddNew
+              ? const Icon(Icons.add, color: Colors.white, size: 30)
+              : CircleAvatar(
+                  radius: 38, // Sedikit lebih kecil untuk border effect
+                  backgroundImage: NetworkImage(imageUrl),
+                ),
+        ),
+        const SizedBox(height: 8),
+        SizedBox(
+          width: 80, // Fixed width untuk konsistensi
+          child: Text(
             name,
+            textAlign: TextAlign.center, // Text di tengah
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: const TextStyle(
@@ -115,8 +117,8 @@ class StoryItem extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
