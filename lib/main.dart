@@ -39,6 +39,7 @@ class _MainScreenState extends State<MainScreen> {
     Placeholder(), // Search
     Placeholder(), // Notifications
     Placeholder(), // Profile
+    Postingan(), // Profile tab menampilkan Postingan
   ];
 
   void _onItemTapped(int index) {
