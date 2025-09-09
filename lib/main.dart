@@ -17,10 +17,11 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      home: const AppBarPage(), 
+      home: const AppBarPage(), // pastikan AppBarPage ada di appbar.dart
     );
   }
 }
+
 class ProfileKelompok extends StatelessWidget {
   const ProfileKelompok({super.key});
 
@@ -28,3 +29,4 @@ class ProfileKelompok extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Placeholder();
   }
+}
