@@ -13,12 +13,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Zutto UI',
+      title: 'SnapSy',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      home: const MainScreen(), // arahkan ke MainScreen
+      home: const MainScreen(), 
     );
   }
 }
@@ -36,7 +36,7 @@ class _MainScreenState extends State<MainScreen> {
   final List<Widget> _pages = const [
     HomePage(), // dari appbar.dart
     Placeholder(), // Search
-    Placeholder(), // Notifications
+    Placeholder(), // Notif
     Placeholder(), // Profile
   ];
 
@@ -57,4 +57,3 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
   }
-

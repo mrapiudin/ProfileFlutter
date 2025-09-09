@@ -43,7 +43,6 @@ class HomePage extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Horizontal Stories dengan jarak merata dan posisi tengah
           Container(
             height: 140,
             width: double.infinity,
@@ -51,20 +50,20 @@ class HomePage extends StatelessWidget {
               horizontal: MediaQuery.of(context).size.width * 0.05,
             ),
             child: const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly, // Distribusi merata
-              crossAxisAlignment: CrossAxisAlignment.center, // Posisi tengah vertikal
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly, 
+              crossAxisAlignment: CrossAxisAlignment.center, 
               children: [
                 StoryItem(
                   name: "Bintang",
-                  imageUrl: "https://i.pravatar.cc/150?img=47",
+                  imageUrl: 'assets/images/star.jpg',
                 ),
                 StoryItem(
                   name: "Rapiu",
-                  imageUrl: "https://i.pravatar.cc/150?img=12",
+                  imageUrl: 'assets/images/rapiu.jpg',
                 ),
                 StoryItem(
                   name: "Kamila",
-                  imageUrl: "https://i.pravatar.cc/150?img=56",
+                  imageUrl: 'assets/images/kamil.jpg',
                 ),
               ],
             ),
@@ -90,7 +89,7 @@ class StoryItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center, // Posisi tengah vertikal
+      mainAxisAlignment: MainAxisAlignment.center,
       mainAxisSize: MainAxisSize.min,
       children: [
         CircleAvatar(
@@ -100,16 +99,16 @@ class StoryItem extends StatelessWidget {
           child: isAddNew
               ? const Icon(Icons.add, color: Colors.white, size: 30)
               : CircleAvatar(
-                  radius: 38, // Sedikit lebih kecil untuk border effect
-                  backgroundImage: NetworkImage(imageUrl),
+                  radius: 38, 
+                  backgroundImage: AssetImage(imageUrl),
                 ),
         ),
         const SizedBox(height: 8),
         SizedBox(
-          width: 80, // Fixed width untuk konsistensi
+          width: 80, 
           child: Text(
             name,
-            textAlign: TextAlign.center, // Text di tengah
+            textAlign: TextAlign.center, 
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: const TextStyle(
