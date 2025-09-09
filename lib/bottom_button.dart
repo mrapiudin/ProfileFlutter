@@ -39,14 +39,6 @@ class CustomBottomNavigationBar extends StatelessWidget {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.search, size: 35),
-            label: 'Search',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.notifications, size: 35),
-            label: 'Notifications',
-          ),
-          BottomNavigationBarItem(
             icon: Icon(Icons.person, size: 35),
             label: 'Profile',
           ),

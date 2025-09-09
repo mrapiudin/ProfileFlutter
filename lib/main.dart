@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'bottom_button.dart';
+import 'bottom_button.dart'; // panggil bottom nav
+import 'appbar.dart';       // panggil appbar & story
 
 void main() {
   runApp(const MyApp());
@@ -7,15 +8,17 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'Zutto UI',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      home: const MainScreen(),
+      home: const MainScreen(), // arahkan ke MainScreen
     );
   }
 }
@@ -30,18 +33,18 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
 
+  final List<Widget> _pages = const [
+    HomePage(), // dari appbar.dart
+    Placeholder(), // Search
+    Placeholder(), // Notifications
+    Placeholder(), // Profile
+  ];
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
   }
-
-  final List<Widget> _pages = const [
-    MyHomePage(title: 'Home'),
-    ProfileKelompok(),
-    Placeholder(), // Notifications page
-    Placeholder(), // Profile page
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -53,24 +56,5 @@ class _MainScreenState extends State<MainScreen> {
       ),
     );
   }
-}
-
-// Update MyHomePage to match the new structure
-class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({super.key, required this.title});
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text(title),
-    );
   }
-}
 
-class ProfileKelompok extends StatelessWidget {
-  const ProfileKelompok({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
-  }
-}
