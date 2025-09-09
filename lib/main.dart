@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'appbar.dart'; // panggil file appbar.dart
 
 void main() {
   runApp(const MyApp());
@@ -6,15 +7,17 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'Zutto UI',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const AppBarPage(), 
     );
   }
 }
